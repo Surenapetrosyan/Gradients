@@ -43,7 +43,7 @@ function rgbToHex(r, g, b) {
 
 //Prints alert with the current background CSS code.
 function exportToCss(){
-  bootstrap_alert.warningWithCode("<em>.yourClassName</em> { </br> background-image: " + canvas.style.backgroundImage + "; </br>}");
+  bootstrap_alert.warningWithCode("<em>.yourClassName</em> { </br> background: " + rgbToHex(red1, green1, blue1) + "; /* fallback for unsupported browsers */ </br> " + "background: -webkit-" + canvas.style.backgroundImage +  "; </br>background: " + canvas.style.backgroundImage + "; </br>}");
 }
 
 //Prints alert with hex of color 1.

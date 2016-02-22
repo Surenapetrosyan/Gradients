@@ -48,7 +48,6 @@ h6 {
 }
 
 .alert {
-  position: fixed;
   margin-top: 100px;
 }
 .alert-success {
