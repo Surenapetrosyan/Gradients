@@ -39,7 +39,7 @@ function generateColors() {
 //Creates the gradient from the 2 generated colors.
 function  randomGradient() {
   generateColors();
-  
+
   bootstrap_alert.clear();
   updateHexCodes(color1, color2);
   canvas.style.backgroundImage = "linear-gradient(to right, " + color1 + "," + color2 + ")";
