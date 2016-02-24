@@ -17,12 +17,24 @@ h6 {
 }
 
 .topnav strong{
-    font-size: 32px;
-    color: white;
+  font-size: 32px;
+  color: #26282B;
+
 }
 .topnav {
-  font-size: 23px;
-  color: white;
+  font-size: 22px;
+  color: #3A4750;
+  border-color: white;
+  background-color: #f8f8f8;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+.topnav h1 {
+  padding-top: 6px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+
 }
 
 .canvas {
@@ -59,6 +71,30 @@ h6 {
 .code {
   font-family: monospace;
 }
+
+#leftHexCode {
+  margin-top: 110px;
+  margin-left: 3.5%;
+  text-align: left;
+}
+
+#leftHexCode h2 {
+  color: white;
+  font-weight: 800;
+}
+
+#rightHexCode {
+  margin-top: -53px;
+  margin-right: 3.5%;
+  text-align: right;
+
+}
+#rightHexCode h2 {
+  color: white;
+  font-weight: 800;
+}
+
+
 
 footer {
     padding: 50px 0;

@@ -39,9 +39,9 @@ function generateColors() {
 //Creates the gradient from the 2 generated colors.
 function  randomGradient() {
   generateColors();
-
+  
   bootstrap_alert.clear();
-
+  updateHexCodes(color1, color2);
   canvas.style.backgroundImage = "linear-gradient(to right, " + color1 + "," + color2 + ")";
 }
 
@@ -85,4 +85,9 @@ bootstrap_alert.warningWithCode = function(message) {
 //Closes alert.
 bootstrap_alert.clear = function() {
             $('#alert_placeholder').html('');
+}
+
+updateHexCodes = function(leftColor, rightColor)  {
+  $('#leftHexCode').html('<h2>'+ leftColor +'</h2>');
+  $('#rightHexCode').html('<h2>'+ rightColor +'</h2>');
 }
