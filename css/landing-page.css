@@ -29,7 +29,7 @@ h6 {
   height: 100%;
   width: auto;
   opacity: 1;
-  background-image: linear-gradient(to right, rgb(0, 201, 255), rgb(146, 254, 157));
+  background-image: linear-gradient(to right, #9BDF22, #08AEBA);
 }
 
 .controlBtns {

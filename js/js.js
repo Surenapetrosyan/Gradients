@@ -1,4 +1,6 @@
+//Generates random gradient on site load.
 window.onload = randomGradient;
+
 //Our background.
 var canvas = document.getElementById('canvas');
 
@@ -34,10 +36,10 @@ function generateColors() {
   color2 = rgbToHex(red2, green2, blue2);
 }
 
-//Generates 2 random RGB Values and sets the background of our canvas to a gradient using those 2 colors.
+//Creates the gradient from the 2 generated colors.
 function  randomGradient() {
   generateColors();
-
+  console.log(color1);
   bootstrap_alert.clear();
 
   canvas.style.backgroundImage = "linear-gradient(to right, " + color1 + "," + color2 + ")";
