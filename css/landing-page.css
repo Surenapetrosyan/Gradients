@@ -83,27 +83,71 @@ h6 {
 }
 
 #leftHexCode {
-  margin-top: 110px;
-  margin-left: 3.5%;
-  text-align: left;
-}
+  top: 110px;
+  left: 3%;
+  position: absolute;
+  background: #f8f8f8;
+  border-radius: 4px;
+  text-align: center;
 
-#leftHexCode h2 {
-  color: white;
-  font-weight: 800;
-}
+  width: 180px;
+  padding-bottom: 120px;
 
+
+}
 #rightHexCode {
-  margin-top: -53px;
-  margin-right: 3.5%;
-  text-align: right;
+  top: 110px;
+  right: 3%;
+  position: absolute;
+  background: #f8f8f8;
+  border-radius: 4px;
+  text-align: center;
+
+  width: 180px;
+  padding-bottom: 120px;
 
 }
-#rightHexCode h2 {
-  color: white;
+#leftHexCode h2 {
+  color: #26282B;
   font-weight: 800;
 }
 
+
+#rightHexCode h2 {
+  color: #26282B;
+  font-weight: 800;
+}
+
+#leftSwatch {
+  width: 150px;
+  height: 50px;
+  background-color: blue;
+  position: absolute;
+  top: 110px;
+  left: 3%;
+  margin-left: 15px;
+  margin-top: 62px;
+  cursor: pointer;
+  border-width: 0.5px;
+  border-style: solid;
+  border-color: #26282B;
+}
+
+#rightSwatch {
+  width: 150px;
+  height: 50px;
+  background-color: blue;
+  position: absolute;
+  top: 110px;
+  right: 3%;
+  margin-right: 15px;
+  margin-top: 62px;
+  cursor: pointer;
+  border-width: 0.5px;
+  border-style: solid;
+  border-color: #26282B;
+
+}
 
 footer {
     padding: 50px 0;
@@ -116,4 +160,77 @@ p.copyright {
 
 button:focus {
   outline: 0 !important;
+}
+
+
+.toggle {
+  background-color: #ddddde;
+  border-radius: 4px;
+  box-shadow: 0 1px 1px 0 rgba(255,255,255,.4), 0 1px 0 0 rgba(0,0,0,0.10) inset;
+  cursor: pointer;
+  width: 100px;
+  height: 46px;
+  overflow: hidden;
+  transition: all .25s linear;
+}
+.leftToggle {
+  position: absolute;;
+  top: 235px;
+  left: 3%;
+  margin-left: 40px;
+}
+
+.rightToggle {
+  position: absolute;;
+  top: 235px;
+  right: 3%;
+  margin-right: 40px;
+}
+.toggle .slide {
+  color: #818283;
+  color: rgba(0,0,0,.15);
+  background: #efefef;
+  border-radius: 50%;
+  font-size: 20px;
+  line-height: 37px;
+  text-align: center;
+  text-decoration: none;
+  height: 36px;
+  width: 36px;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.15), 0 1px 1px 0 rgba(255,255,255,.8) inset;
+  transition: all 0.3s cubic-bezier(0.43, 1.3, 0.86, 1);
+}
+.toggle .slide span{
+    text-shadow: 0 1px 1px rgba(255,255,255,.7), 0 0 1px rgba(0,0,0,.3);
+}
+.toggle .slide:before,
+.toggle .slide:after {
+  color: #FFF;
+  content: "\f09c";
+  font-family: fontAwesome;
+  font-size: 34px;
+  font-weight: 400;
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  -webkit-font-smoothing: antialiased;
+  position: absolute;
+}
+.toggle .slide:before {
+  right: -43px;
+  color: #2a2b2c;
+  opacity: 0.2;
+}
+.toggle .slide:after {
+  content: "\f023";
+  left: -43px;
+  color: #00ba00;
+}
+.toggle.on {
+  background: #00dc00;
+}
+.toggle.on .slide {
+  left: 59px;
+  color: #00d100;
 }

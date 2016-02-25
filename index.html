@@ -14,6 +14,7 @@
 
     <!-- Custom CSS -->
     <link href="css/landing-page.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -37,11 +38,26 @@
     <!-- Header -->
 <section id="canvas" class="canvas">
   <div class="container">
-    <div id="alert_placeholder"></div>
+      <div id="alert_placeholder"></div>
   </div>
-    <div id="leftHexCode"><h2>#LeftColor</h2></div>
-    <div id="rightHexCode"><h2>#RightColor</h2></div>
-
+    <div id="leftHexCode">
+      <h2>#LeftColor</h2>
+    </div>
+    <div id="rightHexCode">
+      <h2>#RightColor</h2>
+    </div>
+    <div id="leftSwatch"></div>
+    <div class='toggle leftToggle'>
+      <div class='slide'>
+        <span class='fa fa-circle-o'></span>
+      </div>
+    </div>
+    <div class='toggle rightToggle'>
+      <div class='slide'>
+        <span class='fa fa-circle-o'></span>
+      </div>
+    </div>
+    <div id="rightSwatch"></div>
   <div class="btn-group-horizontal controlBtns" role="group" aria-label="...">
     <button type="button" id="topButton" onclick="randomGradient()" class="btn">Generate</button>
     <button type="button" id="bottomButton" onclick="exportToCss()" class="btn">Export CSS</button>

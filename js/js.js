@@ -18,6 +18,14 @@ var blue2;
 var color1;
 var color2;
 
+//The left and right solid color preview swatches.
+var leftSwatch = document.getElementById('leftSwatch');
+var rightSwatch = document.getElementById('rightSwatch');
+
+//Is swatch locked variables.
+var leftSwatchLocked = false;
+var rightSwatchLocked = false;
+
 //Generates number from 0-255 for non-white RGB value.
 function generateNumber() {
   return Math.floor(Math.random() * 255);
@@ -42,6 +50,7 @@ function  randomGradient() {
 
   bootstrap_alert.clear();
   updateHexCodes(color1, color2);
+  updateSwatches(color1, color2);
   canvas.style.backgroundImage = "linear-gradient(to right, " + color1 + "," + color2 + ")";
 }
 
@@ -61,21 +70,8 @@ function exportToCss(){
   bootstrap_alert.warningWithCode("<em>.yourClassName</em> { </br> background: " + color1 + "; /* fallback for unsupported browsers */ </br> " + "background: -webkit-" + canvas.style.backgroundImage +  "; </br>background: " + canvas.style.backgroundImage + "; </br>}");
 }
 
-//Prints alert with hex of color 1.
-function logColor1ToHex() {
-  bootstrap_alert.warning('Color 1: <strong>' + color1 + '</strong>');
-}
-
-//Prints alert with hex of color 2.
-function logColor2ToHex() {
-  bootstrap_alert.warning('Color 2: <strong>' + color2 + '</strong>');
-}
-
 //Creates alert.
 bootstrap_alert = function() {}
-bootstrap_alert.warning = function(message) {
-            $('#alert_placeholder').html('<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><span>'+message+'</span></div>');
-}
 
 //Creates alert with extra class I created for css export styling.
 bootstrap_alert.warningWithCode = function(message) {
@@ -87,7 +83,38 @@ bootstrap_alert.clear = function() {
             $('#alert_placeholder').html('');
 }
 
+//Updates the hex codes.
 updateHexCodes = function(leftColor, rightColor)  {
   $('#leftHexCode').html('<h2>'+ leftColor +'</h2>');
   $('#rightHexCode').html('<h2>'+ rightColor +'</h2>');
 }
+
+//Updates solid swatches.
+updateSwatches = function(leftColor, rightColor) {
+  leftSwatch.style.backgroundColor = leftColor;
+  rightSwatch.style.backgroundColor = rightColor;
+}
+
+//Left toggle Code.
+$(function() {
+    $('.leftToggle').on('click', function() {
+      if ($(this).hasClass('on')) {
+         $(this).removeClass('on');
+         leftSwatchLocked = false;
+      } else {
+         $(this).addClass('on');
+         leftSwatchLocked = true;
+      }
+    });
+  });
+
+//Right toggle code.
+$(function() {
+    $('.rightToggle').on('click', function() {
+      if ($(this).hasClass('on')) {
+         $(this).removeClass('on');
+      } else {
+         $(this).addClass('on');
+      }
+    });
+  });
