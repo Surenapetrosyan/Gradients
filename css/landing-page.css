@@ -37,6 +37,11 @@ h6 {
 
 }
 
+.topnav a {
+  color: #55acee;
+  font-style: normal;
+  font-size: 19px;
+}
 .canvas {
   height: 100%;
   width: auto;
