@@ -22,7 +22,7 @@ h6 {
 
 }
 .topnav {
-  font-size: 20px;
+  font-size: 16px;
   color: #3A4750;
   border-color: white;
   background-color: #f8f8f8;
@@ -41,7 +41,7 @@ h6 {
 .topnav a {
   color: #55acee;
   font-style: normal;
-  font-size: 19px;
+  font-size: 16px;
 }
 .canvas {
   height: 100%;
