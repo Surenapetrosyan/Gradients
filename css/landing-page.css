@@ -95,7 +95,7 @@ h6 {
   border-radius: 4px;
   text-align: center;
 
-  width: 180px;
+  width: 150px;
   padding-bottom: 120px;
 
 
@@ -108,29 +108,32 @@ h6 {
   border-radius: 4px;
   text-align: center;
 
-  width: 180px;
+  width: 150px;
   padding-bottom: 120px;
 
 }
 #leftHexCode h2 {
   color: #26282B;
   font-weight: 800;
+  font-size: 23px;
 }
 
 
 #rightHexCode h2 {
   color: #26282B;
   font-weight: 800;
+  font-size: 23px;
+
 }
 
 #leftSwatch {
-  width: 150px;
+  width: 130px;
   height: 50px;
   background-color: #f8f8f8;
   position: absolute;
   top: 110px;
   left: 3%;
-  margin-left: 15px;
+  margin-left: 10px;
   margin-top: 62px;
   border-width: 0.5px;
   border-style: solid;
@@ -138,13 +141,13 @@ h6 {
 }
 
 #rightSwatch {
-  width: 150px;
+  width: 130px;
   height: 50px;
   background-color: #f8f8f8;
   position: absolute;
   top: 110px;
   right: 3%;
-  margin-right: 15px;
+  margin-right: 10px;
   margin-top: 62px;
   border-width: 0.5px;
   border-style: solid;
@@ -178,16 +181,16 @@ button:focus {
 }
 .leftToggle {
   position: absolute;;
-  top: 235px;
+  top: 231px;
   left: 3%;
-  margin-left: 40px;
+  margin-left: 25px;
 }
 
 .rightToggle {
   position: absolute;;
-  top: 235px;
+  top: 231px;
   right: 3%;
-  margin-right: 40px;
+  margin-right: 25px;
 }
 .toggle .slide {
   color: #818283;
