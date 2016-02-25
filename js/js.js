@@ -26,6 +26,10 @@ var rightSwatch = document.getElementById('rightSwatch');
 var leftSwatchLocked = false;
 var rightSwatchLocked = false;
 
+//The current colors of a gradient used for locking colors.
+var currentColor1;
+var currentColor2;
+
 //Generates number from 0-255 for non-white RGB value.
 function generateNumber() {
   return Math.floor(Math.random() * 255);
@@ -44,14 +48,37 @@ function generateColors() {
   color2 = rgbToHex(red2, green2, blue2);
 }
 
+//Needs to be called once.
+generateColors();
+currentColor1 = color1;
+currentColor2 = color2;
+
 //Creates the gradient from the 2 generated colors.
 function  randomGradient() {
-  generateColors();
 
   bootstrap_alert.clear();
-  updateHexCodes(color1, color2);
-  updateSwatches(color1, color2);
-  canvas.style.backgroundImage = "linear-gradient(to right, " + color1 + "," + color2 + ")";
+  generateColors();
+
+  if(!rightSwatchLocked && !leftSwatchLocked) {
+    canvas.style.backgroundImage = "linear-gradient(to right, " + color1 + "," + color2 + ")";
+    updateHexCodes(color1, color2);
+    updateSwatches(color1, color2);
+    currentColor1 = color1;
+    currentColor2 = color2;
+  } else if (leftSwatchLocked && !rightSwatchLocked) {
+    canvas.style.backgroundImage = "linear-gradient(to right, " + currentColor1 + "," + color2 + ")";
+    updateHexCodes(currentColor1, color2);
+    updateSwatches(currentColor1, color2);
+    currentColor2 = color2;
+  } else if (rightSwatchLocked && !leftSwatchLocked) {
+    canvas.style.backgroundImage = "linear-gradient(to right, " + color1 + "," + currentColor2 + ")";
+    updateHexCodes(color1, currentColor2);
+    updateSwatches(color1, currentColor2);
+    currentColor1 = color1;
+  } else if(leftSwatchLocked && rightSwatchLocked) {
+  }
+
+
 }
 
 //Converts RGB to Hex.
@@ -113,8 +140,10 @@ $(function() {
     $('.rightToggle').on('click', function() {
       if ($(this).hasClass('on')) {
          $(this).removeClass('on');
+         rightSwatchLocked = false;
       } else {
          $(this).addClass('on');
+         rightSwatchLocked = true;
       }
     });
   });
