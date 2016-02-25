@@ -147,3 +147,8 @@ $(function() {
       }
     });
   });
+  
+//Activates bootstrap tooltip.
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})

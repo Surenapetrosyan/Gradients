@@ -47,20 +47,20 @@
       <h2>#RightColor</h2>
     </div>
     <div id="leftSwatch"></div>
-    <div class='toggle leftToggle'>
+    <div class='toggle leftToggle' data-toggle="tooltip" data-placement="right" title="Toggle color regeneration.">
       <div class='slide'>
         <span class='fa fa-circle-o'></span>
       </div>
     </div>
-    <div class='toggle rightToggle'>
+    <div class='toggle rightToggle' data-toggle="tooltip" data-placement="left" title="Toggle color regeneration.">
       <div class='slide'>
         <span class='fa fa-circle-o'></span>
       </div>
     </div>
     <div id="rightSwatch"></div>
   <div class="btn-group-horizontal controlBtns" role="group" aria-label="...">
-    <button type="button" id="topButton" onclick="randomGradient()" class="btn">Generate</button>
-    <button type="button" id="bottomButton" onclick="exportToCss()" class="btn">Export CSS</button>
+    <button type="button"  onclick="randomGradient()" class="btn">Generate</button>
+    <button type="button"  onclick="exportToCss()" class="btn">Export CSS</button>
   </div>
 </section>
     <!-- Footer-->
