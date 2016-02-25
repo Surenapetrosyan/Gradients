@@ -17,21 +17,22 @@ h6 {
 }
 
 .topnav strong{
-  font-size: 32px;
+  font-size: 29px;
   color: #26282B;
 
 }
 .topnav {
-  font-size: 22px;
+  font-size: 20px;
   color: #3A4750;
   border-color: white;
   background-color: #f8f8f8;
   padding-bottom: 0px;
   margin-bottom: 0px;
+  margin-top: -4px;
 }
 
 .topnav h1 {
-  padding-top: 6px;
+  padding-top: 26px;
   padding-bottom: 0px;
   margin-bottom: 0px;
 
