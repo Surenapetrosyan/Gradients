@@ -30,6 +30,9 @@ var rightSwatchLocked = false;
 var currentColor1;
 var currentColor2;
 
+//Fallback color for unsupported browsers.
+var fallbackColor;
+
 //Generates number from 0-255 for non-white RGB value.
 function generateNumber() {
   return Math.floor(Math.random() * 255);
@@ -52,6 +55,7 @@ function generateColors() {
 generateColors();
 currentColor1 = color1;
 currentColor2 = color2;
+fallbackColor = color1;
 
 //Creates the gradient from the 2 generated colors.
 function  randomGradient() {
@@ -65,22 +69,22 @@ function  randomGradient() {
     updateSwatches(color1, color2);
     currentColor1 = color1;
     currentColor2 = color2;
+    fallbackColor = color1;
   } else if (leftSwatchLocked && !rightSwatchLocked) {
     canvas.style.backgroundImage = "linear-gradient(to right, " + currentColor1 + "," + color2 + ")";
     updateHexCodes(currentColor1, color2);
     updateSwatches(currentColor1, color2);
     currentColor2 = color2;
-  } else if (rightSwatchLocked && !leftSwatchLocked) {
+    fallbackColor = currentColor1;
+  } else if (!leftSwatchLocked && rightSwatchLocked ) {
     canvas.style.backgroundImage = "linear-gradient(to right, " + color1 + "," + currentColor2 + ")";
     updateHexCodes(color1, currentColor2);
     updateSwatches(color1, currentColor2);
     currentColor1 = color1;
-  } else if(leftSwatchLocked && rightSwatchLocked) {
+    fallbackColor = color1;
+
   }
-
-
 }
-
 //Converts RGB to Hex.
 function componentToHex(c) {
     var hex = c.toString(16);
@@ -94,7 +98,7 @@ function rgbToHex(r, g, b) {
 
 //Prints alert with the current background CSS code.
 function exportToCss(){
-  bootstrap_alert.warningWithCode("<em>.yourClassName</em> { </br> background: " + color1 + "; /* fallback for unsupported browsers */ </br> " + "background: -webkit-" + canvas.style.backgroundImage +  "; </br>background: " + canvas.style.backgroundImage + "; </br>}");
+  bootstrap_alert.warningWithCode("<em>.yourClassName</em> { </br> background: " + fallbackColor + "; /* fallback for unsupported browsers */ </br> " + "background: -webkit-" + canvas.style.backgroundImage +  "; </br>background: " + canvas.style.backgroundImage + "; </br>}");
 }
 
 //Creates alert.
@@ -135,15 +139,15 @@ $(function() {
     });
   });
 
-//Right toggle code.
-$(function() {
-    $('.rightToggle').on('click', function() {
-      if ($(this).hasClass('on')) {
-         $(this).removeClass('on');
-         rightSwatchLocked = false;
-      } else {
-         $(this).addClass('on');
-         rightSwatchLocked = true;
-      }
+  //Right toggle code.
+  $(function() {
+      $('.rightToggle').on('click', function() {
+        if ($(this).hasClass('on')) {
+           $(this).removeClass('on');
+           rightSwatchLocked = false;
+        } else {
+           $(this).addClass('on');
+           rightSwatchLocked = true;
+        }
+      });
     });
-  });
