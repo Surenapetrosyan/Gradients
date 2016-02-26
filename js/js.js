@@ -1,6 +1,9 @@
 //Generates random gradient on site load.
 window.onload = randomGradient;
 
+var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+
+
 //Our background.
 var canvas = document.getElementById('canvas');
 
@@ -21,6 +24,18 @@ var color2;
 //The left and right solid color preview swatches.
 var leftSwatch = document.getElementById('leftSwatch');
 var rightSwatch = document.getElementById('rightSwatch');
+
+var leftToggle = document.getElementsByClassName('leftToggle');
+
+
+if(1==1){
+$( leftSwatch ).replaceWith( "<div>" + $( leftSwatch ).text() + "</div>" );
+$( rightSwatch ).replaceWith( "<div>" + $( leftSwatch ).text() + "</div>" );
+leftHexCode.style.paddingBottom = "50px";
+
+leftToggle.style.top = "100px";
+}
+
 
 //Is swatch locked variables.
 var leftSwatchLocked = false;
@@ -82,7 +97,6 @@ function  randomGradient() {
     updateSwatches(color1, currentColor2);
     currentColor1 = color1;
     fallbackColor = color1;
-
   }
 }
 //Converts RGB to Hex.
@@ -155,18 +169,38 @@ $(function() {
     });
 
     $('#leftSwatch').on('change', function() {
-        color1 = this.value;
-        fallbackColor = this.value;
-        currentColor1 = this.value;
-        canvas.style.backgroundImage = "linear-gradient(to right, " + this.value + "," + color2 + ")";
-        updateSwatches(this.value, color2);
-        updateHexCodes(this.value, color2);
+
+    if (!leftSwatchLocked && rightSwatchLocked ) {
+          color1 = this.value;
+          fallbackColor = this.value;
+          currentColor1 = this.value;
+          canvas.style.backgroundImage = "linear-gradient(to right, " + this.value + "," + currentColor2 + ")";
+          updateSwatches(this.value, currentColor2);
+          updateHexCodes(this.value, currentColor2);
+        } else {
+          color1 = this.value;
+          fallbackColor = this.value;
+          currentColor1 = this.value;
+          canvas.style.backgroundImage = "linear-gradient(to right, " + this.value + "," + color2 + ")";
+          updateSwatches(this.value, color2);
+          updateHexCodes(this.value, color2);
+        }
+
+
     });
 
     $('#rightSwatch').on('change', function() {
-        color2 = this.value;
-        currentColor2 = this.value;
-        canvas.style.backgroundImage = "linear-gradient(to right, " + color1 + "," + this.value + ")";
-        updateSwatches(color1, this.value);
-        updateHexCodes(color1, this.value);
+      if (leftSwatchLocked && !rightSwatchLocked ) {
+            color2 = this.value;
+            currentColor2 = this.value;
+            canvas.style.backgroundImage = "linear-gradient(to right, " + currentColor1 + "," + this.value + ")";
+            updateSwatches(currentColor1, this.value);
+            updateHexCodes(currentColor1, this.value);
+          } else {
+            color2 = this.value;
+            currentColor2 = this.value;
+            canvas.style.backgroundImage = "linear-gradient(to right, " + color1 + "," + this.value + ")";
+            updateSwatches(color1, this.value);
+            updateHexCodes(color1, this.value);
+          }
     });
