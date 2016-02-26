@@ -1,6 +1,7 @@
 //Generates random gradient on site load.
 window.onload = randomGradient;
 
+//Checks if device is IOS device, ios devices don't support color picking.
 var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 
 
@@ -25,15 +26,19 @@ var color2;
 var leftSwatch = document.getElementById('leftSwatch');
 var rightSwatch = document.getElementById('rightSwatch');
 
-var leftToggle = document.getElementsByClassName('leftToggle');
+var leftToggle = document.getElementById('leftToggle');
+var rightToggle = document.getElementById('rightToggle');
 
-
-if(1==1){
+//Styling for ios devices that don't support color picking.
+if(iOS) {
 $( leftSwatch ).replaceWith( "<div>" + $( leftSwatch ).text() + "</div>" );
 $( rightSwatch ).replaceWith( "<div>" + $( leftSwatch ).text() + "</div>" );
-leftHexCode.style.paddingBottom = "50px";
+leftHexCode.style.paddingBottom = "70px";
+leftToggle.style.top = "172px";
 
-leftToggle.style.top = "100px";
+rightHexCode.style.paddingBottom = "70px";
+rightToggle.style.top = "172px";
+
 }
 
 
