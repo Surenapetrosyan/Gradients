@@ -116,14 +116,16 @@ bootstrap_alert.clear = function() {
 
 //Updates the hex codes.
 updateHexCodes = function(leftColor, rightColor)  {
-  $('#leftHexCode').html('<h2>'+ leftColor +'</h2>');
-  $('#rightHexCode').html('<h2>'+ rightColor +'</h2>');
+  $('#leftHexCode').html('<h2>'+ leftColor.toUpperCase() +'</h2>');
+  $('#rightHexCode').html('<h2>'+ rightColor.toUpperCase() +'</h2>');
 }
 
 //Updates solid swatches.
 updateSwatches = function(leftColor, rightColor) {
   leftSwatch.style.backgroundColor = leftColor;
+  leftSwatch.value = leftColor;
   rightSwatch.style.backgroundColor = rightColor;
+  rightSwatch.value = rightColor;
 }
 
 //Left toggle Code.
@@ -150,4 +152,21 @@ $(function() {
            rightSwatchLocked = true;
         }
       });
+    });
+
+    $('#leftSwatch').on('change', function() {
+        color1 = this.value;
+        fallbackColor = this.value;
+        currentColor1 = this.value;
+        canvas.style.backgroundImage = "linear-gradient(to right, " + this.value + "," + color2 + ")";
+        updateSwatches(this.value, color2);
+        updateHexCodes(this.value, color2);
+    });
+
+    $('#rightSwatch').on('change', function() {
+        color2 = this.value;
+        currentColor2 = this.value;
+        canvas.style.backgroundImage = "linear-gradient(to right, " + color1 + "," + this.value + ")";
+        updateSwatches(color1, this.value);
+        updateHexCodes(color1, this.value);
     });
