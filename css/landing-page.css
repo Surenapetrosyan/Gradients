@@ -240,3 +240,20 @@ button:focus {
   left: 59px;
   color: #00d100;
 }
+
+@media (max-width: 627px) {
+  #leftHexCode {
+    width: 134px;
+  }
+
+  .leftToggle {
+    margin-left: 17px;
+  }
+  #rightHexCode {
+    width: 134px;
+  }
+
+  .rightToggle {
+    margin-right: 17px;
+  }
+}
