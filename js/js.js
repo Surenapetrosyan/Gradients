@@ -34,10 +34,8 @@ if(iOS) {
 $( leftSwatch ).replaceWith( "<div>" + $( leftSwatch ).text() + "</div>" );
 $( rightSwatch ).replaceWith( "<div>" + $( leftSwatch ).text() + "</div>" );
 leftHexCode.style.paddingBottom = "70px";
-leftToggle.style.top = "172px";
 
 rightHexCode.style.paddingBottom = "70px";
-rightToggle.style.top = "172px";
 
 }
 
@@ -150,12 +148,14 @@ updateSwatches = function(leftColor, rightColor) {
 //Left toggle Code.
 $(function() {
     $('.leftToggle').on('click', function() {
-      if ($(this).hasClass('on')) {
-         $(this).removeClass('on');
-         leftSwatchLocked = false;
-      } else {
-         $(this).addClass('on');
+      if ($(this).hasClass('fa-unlock')) {
+         $(this).removeClass('fa-unlock');
+         $(this).addClass('fa-lock');
          leftSwatchLocked = true;
+      } else {
+         $(this).removeClass('fa-lock');
+         $(this).addClass('fa-unlock');
+         leftSwatchLocked = false;
       }
     });
   });
@@ -163,12 +163,14 @@ $(function() {
   //Right toggle code.
   $(function() {
       $('.rightToggle').on('click', function() {
-        if ($(this).hasClass('on')) {
-           $(this).removeClass('on');
-           rightSwatchLocked = false;
-        } else {
-           $(this).addClass('on');
+        if ($(this).hasClass('fa-unlock')) {
+           $(this).removeClass('fa-unlock');
+           $(this).addClass('fa-lock');
            rightSwatchLocked = true;
+        } else {
+           $(this).removeClass('fa-lock');
+           $(this).addClass('fa-unlock');
+           rightSwatchLocked = false;
         }
       });
     });
