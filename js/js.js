@@ -84,7 +84,7 @@ function  randomGradient() {
   generateColors();
 
   if(!rightSwatchLocked && !leftSwatchLocked) {
-    canvas.style.backgroundImage = "linear-gradient(to right, " + color1 + "," + color2 + ")";
+    canvas.style.backgroundImage = "linear-gradient(to right, " + color1 + " 25%," + color2 + ")";
     updateHexCodes(color1, color2);
     updateSwatches(color1, color2);
     currentColor1 = color1;
