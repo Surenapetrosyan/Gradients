@@ -30,7 +30,7 @@ var leftToggle = document.getElementById('leftToggle');
 var rightToggle = document.getElementById('rightToggle');
 
 //Styling for ios devices that don't support color picking.
-if(true) {
+if(iOS) {
 $( leftSwatch ).replaceWith( "<div>" + $( leftSwatch ).text() + "</div>" );
 $( rightSwatch ).replaceWith( "<div>" + $( leftSwatch ).text() + "</div>" );
 leftHexCode.style.paddingBottom = "70px";
