@@ -47,20 +47,20 @@
       <h2>#RightColor</h2>
     </div>
     <input id="leftSwatch"  type="color" value="#f8f8f8"></input>
-    <div class='toggle leftToggle' id="leftToggle"data-toggle="tooltip" data-placement="right" title="Toggle color regeneration.">
+    <div class='toggle leftToggle' id="leftToggle"data-toggle="tooltip" data-placement="right" title="Lock color">
       <div class='slide'>
         <span class='fa fa-circle-o'></span>
       </div>
     </div>
-    <div class='toggle rightToggle' id="rightToggle" data-toggle="tooltip" data-placement="left" title="Toggle color regeneration.">
+    <div class='toggle rightToggle' id="rightToggle" data-toggle="tooltip" data-placement="left" title="Lock color">
       <div class='slide'>
         <span class='fa fa-circle-o'></span>
       </div>
     </div>
     <input id="rightSwatch" type="color" value="#f8f8f8"></input>
   <div class="btn-group-horizontal controlBtns" role="group" aria-label="...">
-    <button type="button"  onclick="randomGradient()" class="btn">Generate</button>
-    <button type="button"  onclick="exportToCss()" class="btn">Export CSS</button>
+    <button type="button"  onclick="randomGradient()" class="btn" data-toggle="tooltip" data-placement="top" title="Regenerate gradient"><i class="fa fa-repeat fa-lg"></i></button>
+    <button type="button"  onclick="exportToCss()" class="btn" data-toggle="tooltip" data-placement="top" title="Get CSS code"><i class="fa fa-file-code-o fa-lg"></i></button>
   </div>
 </section>
     <!-- Footer-->
