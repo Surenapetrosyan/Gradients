@@ -33,9 +33,11 @@ var rightToggle = document.getElementById('rightToggle');
 if(iOS) {
 $( leftSwatch ).replaceWith( "<div>" + $( leftSwatch ).text() + "</div>" );
 $( rightSwatch ).replaceWith( "<div>" + $( leftSwatch ).text() + "</div>" );
-leftHexCode.style.paddingBottom = "70px";
+leftHexCode.style.paddingBottom = "30px";
+rightHexCode.style.paddingBottom = "30px";
 
-rightHexCode.style.paddingBottom = "70px";
+leftToggle.style.top ="155px";
+rightToggle.style.top ="155px";
 
 }
 
