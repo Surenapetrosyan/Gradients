@@ -17,22 +17,22 @@ h6 {
 }
 
 .topnav strong{
-  font-size: 29px;
+  font-size: 27px;
   color: #26282B;
 
 }
 .topnav {
-  font-size: 16px;
+  font-size: 14px;
   color: #3A4750;
   border-color: white;
   background-color: #f8f8f8;
   padding-bottom: 0px;
   margin-bottom: 0px;
-  margin-top: -4px;
+  margin-top: -3px;
 }
 
 .topnav h1 {
-  padding-top: 26px;
+  padding-top: 23px;
   padding-bottom: 0px;
   margin-bottom: 0px;
 
@@ -41,7 +41,8 @@ h6 {
 .topnav a {
   color: #55acee;
   font-style: normal;
-  font-size: 16px;
+  font-size: 14px;
+  font-weight: lighter;
 }
 .canvas {
   height: 100%;
@@ -58,7 +59,7 @@ h6 {
 }
 
 .controlBtns .btn {
-  background-color: #f8f8f8;
+  background-color: #ffffff;
   color: #26282B;
   border: 0;
   font-size: 20px;
@@ -80,7 +81,7 @@ h6 {
 }
 .alert-success {
   border-color: white;
-  background-color: #f8f8f8;
+  background-color: #ffffff;
   color: black;
 }
 
@@ -92,20 +93,19 @@ h6 {
   top: 110px;
   left: 3%;
   position: absolute;
-  background: #f8f8f8;
+  background: #ffffff;
   border-radius: 4px;
   text-align: center;
 
   width: 150px;
   padding-bottom: 120px;
-
 
 }
 #rightHexCode {
   top: 110px;
   right: 3%;
   position: absolute;
-  background: #f8f8f8;
+  background: #ffffff;
   border-radius: 4px;
   text-align: center;
 
@@ -113,6 +113,7 @@ h6 {
   padding-bottom: 120px;
 
 }
+
 #leftHexCode h2 {
   color: #26282B;
   font-weight: 800;
@@ -140,6 +141,7 @@ h6 {
   cursor: pointer;
 
 }
+
 
 #rightSwatch {
   width: 130px;
@@ -245,7 +247,12 @@ button:focus {
   #leftHexCode {
     width: 134px;
   }
-
+  #leftSwatch {
+    width: 114px;
+  }
+  #rightSwatch {
+    width: 114px;
+  }
   .leftToggle {
     margin-left: 17px;
   }
@@ -256,4 +263,18 @@ button:focus {
   .rightToggle {
     margin-right: 17px;
   }
+}
+
+.heading {
+  padding-top: 90px;
+  padding-bottom: 95px;
+}
+
+.heading h3 {
+  color: #A5A5A5;
+  font-weight: lighter;
+}
+.twitter-share-button {
+  margin-top: 15px;
+
 }
