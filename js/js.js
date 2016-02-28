@@ -33,6 +33,7 @@ var rightToggle = document.getElementById('rightToggle');
 if(iOS) {
 $( leftSwatch ).replaceWith( "<div>" + $( leftSwatch ).text() + "</div>" );
 $( rightSwatch ).replaceWith( "<div>" + $( leftSwatch ).text() + "</div>" );
+
 leftHexCode.style.paddingBottom = "30px";
 rightHexCode.style.paddingBottom = "30px";
 
@@ -74,23 +75,24 @@ function generateColors() {
 currentColor1 = color1;
 currentColor2 = color2;
 fallbackColor = color1;
-console.log("one time only stuff");
 
 //Changes gradient based on URL.
 function parseURL(theURL) {
-    var hex1SliceMark2 = url.length -7;
+    var hex1SliceMark2 = theURL.length -7;
     var hex1SliceMark1 = hex1SliceMark2 -7;
 
-    var hex2SliceMark2 = url.length;
+    var hex2SliceMark2 = theURL.length;
     var hex2SliceMark1 = hex2SliceMark2 -7;
 
 
-    var urlHex1 = url.slice(hex1SliceMark1,hex1SliceMark2);
-    var urlHex2 = url.slice(hex2SliceMark1,hex2SliceMark2);
+    var urlHex1 = theURL.slice(hex1SliceMark1,hex1SliceMark2);
+    var urlHex2 = theURL.slice(hex2SliceMark1,hex2SliceMark2);
 
-    updateColors(urlHex1, urlHex2);
-
-
+    if(urlHex1.length == 7 && urlHex2.length == 7 && urlHex1.startsWith('#') && urlHex2.startsWith('#')) {
+      updateColors(urlHex1, urlHex2);
+    } else {
+      randomGradient();
+    }
 }
 
 
@@ -110,8 +112,6 @@ function updateColors(firstColor, secondColor) {
 
 }
 
-
-
 //Creates the gradient from the 2 generated colors.
 function  randomGradient() {
   bootstrap_alert.clear();
@@ -124,6 +124,7 @@ function  randomGradient() {
   } else if (!leftSwatchLocked && rightSwatchLocked ) {
     updateColors(color1, currentColor2);
   }
+
 }
 //Converts RGB to Hex.
 function componentToHex(c) {
