@@ -72,7 +72,6 @@ function generateColors() {
 }
 
 //Needs to be called once.
-generateColors();
 currentColor1 = color1;
 currentColor2 = color2;
 fallbackColor = color1;
@@ -82,16 +81,16 @@ function updateColors(firstColor, secondColor) {
   canvas.style.backgroundImage = "linear-gradient(to right, " + firstColor + "," + secondColor + ")";
   updateHexCodes(firstColor, secondColor);
   updateSwatches(firstColor, secondColor);
+  color1 = firstColor;
+  color2 = secondColor;
   currentColor1 = firstColor;
   currentColor2 = secondColor;
   fallbackColor = firstColor;
+  document.location.hash = firstColor+secondColor;
+
 }
 
-function processAjaxData(response, urlPath) {
-     document.getElementById("canvas").innerHTML = response.html;
-     document.title = response.pageTitle;
-     window.history.pushState({"html":response.html,"pageTitle":response.pageTitle},"", urlPath);
- }
+
 
 //Creates the gradient from the 2 generated colors.
 function  randomGradient() {
@@ -182,22 +181,10 @@ $(function() {
     $('#leftSwatch').on('change', function() {
 
     if (!leftSwatchLocked && rightSwatchLocked ) {
-          color1 = this.value;
-          fallbackColor = this.value;
-          currentColor1 = this.value;
-          canvas.style.backgroundImage = "linear-gradient(to right, " + this.value + "," + currentColor2 + ")";
-          updateSwatches(this.value, currentColor2);
-          updateHexCodes(this.value, currentColor2);
+          updateColors(this.value, currentColor2);
         } else {
-          color1 = this.value;
-          fallbackColor = this.value;
-          currentColor1 = this.value;
-          canvas.style.backgroundImage = "linear-gradient(to right, " + this.value + "," + color2 + ")";
-          updateSwatches(this.value, color2);
-          updateHexCodes(this.value, color2);
+          updateColors(this.value, color2);
         }
-
-
     });
 
     $('#rightSwatch').on('change', function() {
