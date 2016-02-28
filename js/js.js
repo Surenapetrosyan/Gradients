@@ -31,15 +31,14 @@ var rightToggle = document.getElementById('rightToggle');
 
 //Styling for ios devices that don't support color picking.
 if(iOS) {
-$( leftSwatch ).replaceWith( "<div>" + $( leftSwatch ).text() + "</div>" );
-$( rightSwatch ).replaceWith( "<div>" + $( leftSwatch ).text() + "</div>" );
+  $( leftSwatch ).replaceWith( "<div>" + $( leftSwatch ).text() + "</div>" );
+  $( rightSwatch ).replaceWith( "<div>" + $( leftSwatch ).text() + "</div>" );
 
-leftHexCode.style.paddingBottom = "30px";
-rightHexCode.style.paddingBottom = "30px";
+  leftHexCode.style.paddingBottom = "30px";
+  rightHexCode.style.paddingBottom = "30px";
 
-leftToggle.style.top ="155px";
-rightToggle.style.top ="155px";
-
+  leftToggle.style.top ="155px";
+  rightToggle.style.top ="155px";
 }
 
 //Is swatch locked variables.
@@ -220,7 +219,7 @@ $('.popup').click(function(event) {
       height = 300,
       left   = ($(window).width()  - width)  / 2,
       top    = ($(window).height() - height) / 2,
-      url    = 'http://twitter.com/share?hashtags=WebDesign,WebDev,Design&via=WebDevSuren&url=http://gradients.online&text=Quickly%20generate%20beautiful%20gradients!&',
+      url    = 'http://twitter.com/share?hashtags=WebDesign,WebDev,Design&via=WebDevSuren&url=http://gradients.online&text=Quickly%20generate%20beautiful%20gradients%20you%20can%20share%20with%20your%20friends!',
       opts   = 'status=1' +
                ',width='  + width  +
                ',height=' + height +
@@ -233,6 +232,8 @@ $('.popup').click(function(event) {
 });
 
 parseURL(url);
+
+//New URL instantly changes the gradient.
 window.onhashchange = function(){
   url = window.location.href;
   parseURL(url);
