@@ -218,10 +218,11 @@ button:focus {
 
 }
 .explanation {
-  margin-top: 15px;
-  margin-left: 120px;
-  margin-right: 120px;
+  margin-top: 25px;
+  margin-left: 170px;
+  margin-right: 170px;
   margin-bottom: -50px;
+  padding-bottom: 60px;
 }
 
 .banner {
@@ -268,6 +269,13 @@ button:focus {
   cursor: pointer;
   height: 130px;
 }
+@media (max-width: 1500px) {
+  .explanation {
+    margin-left: 85px;
+    margin-right: 85px
+  }
+}
+
 @media (max-width: 627px) {
   #leftHexCode {
     width: 134px;

@@ -1,5 +1,5 @@
 //The url for parsing.
-var url = window.location.href;
+var url =  window.location.href;;
 
 //Checks if device is IOS device, ios devices don't support color picking.
 var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
@@ -233,3 +233,7 @@ $('.popup').click(function(event) {
 });
 
 parseURL(url);
+window.onhashchange = function(){
+  url = window.location.href;
+  parseURL(url);
+}
