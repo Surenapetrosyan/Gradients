@@ -87,6 +87,12 @@ function updateColors(firstColor, secondColor) {
   fallbackColor = firstColor;
 }
 
+function processAjaxData(response, urlPath) {
+     document.getElementById("canvas").innerHTML = response.html;
+     document.title = response.pageTitle;
+     window.history.pushState({"html":response.html,"pageTitle":response.pageTitle},"", urlPath);
+ }
+
 //Creates the gradient from the 2 generated colors.
 function  randomGradient() {
   bootstrap_alert.clear();
