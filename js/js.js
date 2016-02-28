@@ -213,3 +213,19 @@ $(function() {
             updateHexCodes(color1, this.value);
           }
     });
+    $('.popup').click(function(event) {
+      var width  = 575,
+          height = 300,
+          left   = ($(window).width()  - width)  / 2,
+          top    = ($(window).height() - height) / 2,
+          url    = 'http://twitter.com/share?hashtags=WebDesign,WebDev,Design&via=WebDevSuren&url=http://gradients.online&text=Quickly%20generate%20beautiful%20gradients!&',
+          opts   = 'status=1' +
+                   ',width='  + width  +
+                   ',height=' + height +
+                   ',top='    + top    +
+                   ',left='   + left;
+
+      window.open(url, 'twitter', opts);
+      console.log(url);
+      return false;
+    });
