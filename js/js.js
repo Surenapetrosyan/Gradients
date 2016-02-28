@@ -77,31 +77,27 @@ currentColor1 = color1;
 currentColor2 = color2;
 fallbackColor = color1;
 
+//Updates all ways that indicate color.
+function updateColors(firstColor, secondColor) {
+  canvas.style.backgroundImage = "linear-gradient(to right, " + firstColor + "," + secondColor + ")";
+  updateHexCodes(firstColor, secondColor);
+  updateSwatches(firstColor, secondColor);
+  currentColor1 = firstColor;
+  currentColor2 = secondColor;
+  fallbackColor = firstColor;
+}
+
 //Creates the gradient from the 2 generated colors.
 function  randomGradient() {
-
   bootstrap_alert.clear();
   generateColors();
 
   if(!rightSwatchLocked && !leftSwatchLocked) {
-    canvas.style.backgroundImage = "linear-gradient(to right, " + color1 + "," + color2 + ")";
-    updateHexCodes(color1, color2);
-    updateSwatches(color1, color2);
-    currentColor1 = color1;
-    currentColor2 = color2;
-    fallbackColor = color1;
+    updateColors(color1, color2);
   } else if (leftSwatchLocked && !rightSwatchLocked) {
-    canvas.style.backgroundImage = "linear-gradient(to right, " + currentColor1 + "," + color2 + ")";
-    updateHexCodes(currentColor1, color2);
-    updateSwatches(currentColor1, color2);
-    currentColor2 = color2;
-    fallbackColor = currentColor1;
+    updateColors(currentColor1, color2);
   } else if (!leftSwatchLocked && rightSwatchLocked ) {
-    canvas.style.backgroundImage = "linear-gradient(to right, " + color1 + "," + currentColor2 + ")";
-    updateHexCodes(color1, currentColor2);
-    updateSwatches(color1, currentColor2);
-    currentColor1 = color1;
-    fallbackColor = color1;
+    updateColors(color1, currentColor2);
   }
 }
 //Converts RGB to Hex.

@@ -210,10 +210,12 @@ button:focus {
 }
 
 .heading h2 {
-  color: #A5A5A5;
+  color: black;
   font-size: 38px;
-  padding-bottom: 15px;
+  padding-bottom: 30px;
   font-weight: lighter;
+  color: #8c8c8c;
+
 }
 .explanation {
   margin-top: 15px;
@@ -221,6 +223,7 @@ button:focus {
   margin-right: 120px;
   margin-bottom: -50px;
 }
+
 .banner {
   background: #2dd7ce; /* fallback for unsupported browsers */
   background: -webkit-linear-gradient(to right, rgb(45, 215, 206), rgb(26, 158, 208));
@@ -236,6 +239,29 @@ button:focus {
 
 }
 
+.future {
+  padding-bottom: 75px;]
+  color: #404040;
+
+}
+.future p {
+  font-size: 18px;
+  text-align: left;
+  margin-left: 10%;
+  padding-bottom: 5px;
+  color: #404040;
+}
+
+.future h2 {
+  color: black;
+  font-size: 38px;
+  padding-top: 100px;
+  padding-bottom: 40px;
+  font-weight: lighter;
+  text-align: center;
+  color: #8c8c8c;
+
+}
 #twitterLogo {
   padding-bottom: 20px;
   margin-bottom: 60px;
@@ -273,6 +299,10 @@ button:focus {
   .banner h2 {
     font-size: 25px;
   }
+  .future h2 {
+    font-size: 25px;
+
+  }
   .explanation {
     margin-left: 0px;
     margin-right: 0px;
@@ -280,5 +310,8 @@ button:focus {
 
   #twitterLogo {
     height: 75px;
+  }
+  .future p {
+    font-size: 16px;
   }
 }
