@@ -41,7 +41,6 @@ rightToggle.style.top ="155px";
 
 }
 
-
 //Is swatch locked variables.
 var leftSwatchLocked = false;
 var rightSwatchLocked = false;
