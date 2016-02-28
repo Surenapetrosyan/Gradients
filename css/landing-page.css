@@ -219,19 +219,21 @@ button:focus {
   margin-top: 15px;
   margin-left: 120px;
   margin-right: 120px;
-  padding-bottom: 0px;
+  margin-bottom: -50px;
 }
 .banner {
-background: #2dd7ce; /* fallback for unsupported browsers */
-background: -webkit-linear-gradient(to right, rgb(45, 215, 206), rgb(26, 158, 208));
-background: linear-gradient(to right, rgb(45, 215, 206), rgb(26, 158, 208));
+  background: #2dd7ce; /* fallback for unsupported browsers */
+  background: -webkit-linear-gradient(to right, rgb(45, 215, 206), rgb(26, 158, 208));
+  background: linear-gradient(to right, rgb(45, 215, 206), rgb(26, 158, 208));
 
 }
-.banner h3 {
+.banner h2 {
   color: white;
-  padding-top: 35px;
-  padding-bottom: 35px;
-  padding-left: 15%;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  font-weight: lighter;
+  font-size: 38px;
+
 }
 @media (max-width: 627px) {
   #leftHexCode {
@@ -261,6 +263,9 @@ background: linear-gradient(to right, rgb(45, 215, 206), rgb(26, 158, 208));
     font-size: 25px;
   }
 
+  .banner h2 {
+    font-size: 25px;
+  }
   .explanation {
     margin-left: 0px;
     margin-right: 0px;
