@@ -1,5 +1,5 @@
-//Generates random gradient on site load.
-window.onload = randomGradient;
+//The url for parsing.
+var url = window.location.href;
 
 //Checks if device is IOS device, ios devices don't support color picking.
 var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
@@ -75,6 +75,25 @@ function generateColors() {
 currentColor1 = color1;
 currentColor2 = color2;
 fallbackColor = color1;
+console.log("one time only stuff");
+
+//Changes gradient based on URL.
+function parseURL(theURL) {
+    var hex1SliceMark2 = url.length -7;
+    var hex1SliceMark1 = hex1SliceMark2 -7;
+
+    var hex2SliceMark2 = url.length;
+    var hex2SliceMark1 = hex2SliceMark2 -7;
+
+
+    var urlHex1 = url.slice(hex1SliceMark1,hex1SliceMark2);
+    var urlHex2 = url.slice(hex2SliceMark1,hex2SliceMark2);
+
+    updateColors(urlHex1, urlHex2);
+
+
+}
+
 
 //Updates all ways that indicate color.
 function updateColors(firstColor, secondColor) {
@@ -86,7 +105,9 @@ function updateColors(firstColor, secondColor) {
   currentColor1 = firstColor;
   currentColor2 = secondColor;
   fallbackColor = firstColor;
+
   document.location.hash = firstColor+secondColor;
+  url = window.location.href;
 
 }
 
@@ -150,71 +171,65 @@ updateSwatches = function(leftColor, rightColor) {
 
 //Left toggle Code.
 $(function() {
-    $('.leftToggle').on('click', function() {
-      if ($(this).hasClass('fa-unlock')) {
-         $(this).removeClass('fa-unlock');
-         $(this).addClass('fa-lock');
-         leftSwatchLocked = true;
-      } else {
-         $(this).removeClass('fa-lock');
-         $(this).addClass('fa-unlock');
-         leftSwatchLocked = false;
-      }
-    });
+  $('.leftToggle').on('click', function() {
+    if ($(this).hasClass('fa-unlock')) {
+       $(this).removeClass('fa-unlock');
+       $(this).addClass('fa-lock');
+       leftSwatchLocked = true;
+    } else {
+       $(this).removeClass('fa-lock');
+       $(this).addClass('fa-unlock');
+       leftSwatchLocked = false;
+    }
   });
+});
 
   //Right toggle code.
-  $(function() {
-      $('.rightToggle').on('click', function() {
-        if ($(this).hasClass('fa-unlock')) {
-           $(this).removeClass('fa-unlock');
-           $(this).addClass('fa-lock');
-           rightSwatchLocked = true;
-        } else {
-           $(this).removeClass('fa-lock');
-           $(this).addClass('fa-unlock');
-           rightSwatchLocked = false;
-        }
-      });
-    });
+$(function() {
+  $('.rightToggle').on('click', function() {
+    if ($(this).hasClass('fa-unlock')) {
+       $(this).removeClass('fa-unlock');
+       $(this).addClass('fa-lock');
+       rightSwatchLocked = true;
+    } else {
+       $(this).removeClass('fa-lock');
+       $(this).addClass('fa-unlock');
+       rightSwatchLocked = false;
+    }
+  });
+});
 
-    $('#leftSwatch').on('change', function() {
+$('#leftSwatch').on('change', function() {
+  if(!leftSwatchLocked && rightSwatchLocked ) {
+      updateColors(this.value, currentColor2);
+    } else {
+      updateColors(this.value, color2);
+    }
+});
 
-    if (!leftSwatchLocked && rightSwatchLocked ) {
-          updateColors(this.value, currentColor2);
-        } else {
-          updateColors(this.value, color2);
-        }
-    });
+$('#rightSwatch').on('change', function() {
+  if (leftSwatchLocked && !rightSwatchLocked ) {
+    updateColors(currentColor1, this.value);
+  } else {
+    updateColors(color1, this.value);
+  }
+});
 
-    $('#rightSwatch').on('change', function() {
-      if (leftSwatchLocked && !rightSwatchLocked ) {
-            color2 = this.value;
-            currentColor2 = this.value;
-            canvas.style.backgroundImage = "linear-gradient(to right, " + currentColor1 + "," + this.value + ")";
-            updateSwatches(currentColor1, this.value);
-            updateHexCodes(currentColor1, this.value);
-          } else {
-            color2 = this.value;
-            currentColor2 = this.value;
-            canvas.style.backgroundImage = "linear-gradient(to right, " + color1 + "," + this.value + ")";
-            updateSwatches(color1, this.value);
-            updateHexCodes(color1, this.value);
-          }
-    });
-    $('.popup').click(function(event) {
-      var width  = 575,
-          height = 300,
-          left   = ($(window).width()  - width)  / 2,
-          top    = ($(window).height() - height) / 2,
-          url    = 'http://twitter.com/share?hashtags=WebDesign,WebDev,Design&via=WebDevSuren&url=http://gradients.online&text=Quickly%20generate%20beautiful%20gradients!&',
-          opts   = 'status=1' +
-                   ',width='  + width  +
-                   ',height=' + height +
-                   ',top='    + top    +
-                   ',left='   + left;
+$('.popup').click(function(event) {
+  var width  = 575,
+      height = 300,
+      left   = ($(window).width()  - width)  / 2,
+      top    = ($(window).height() - height) / 2,
+      url    = 'http://twitter.com/share?hashtags=WebDesign,WebDev,Design&via=WebDevSuren&url=http://gradients.online&text=Quickly%20generate%20beautiful%20gradients!&',
+      opts   = 'status=1' +
+               ',width='  + width  +
+               ',height=' + height +
+               ',top='    + top    +
+               ',left='   + left;
 
-      window.open(url, 'twitter', opts);
-      console.log(url);
-      return false;
-    });
+  window.open(url, 'twitter', opts);
+  console.log(url);
+  return false;
+});
+
+parseURL(url);
