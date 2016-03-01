@@ -219,7 +219,7 @@ $('.popup').click(function(event) {
       height = 300,
       left   = ($(window).width()  - width)  / 2,
       top    = ($(window).height() - height) / 2,
-      url    = 'http://twitter.com/share?hashtags=WebDesign,WebDev,Design&via=WebDevSuren&url=http://gradients.online&text=Quickly%20generate%20beautiful%20gradients%20you%20can%20share%20with%20your%20friends!',
+      url    = 'http://twitter.com/share?hashtags=WebDesign,WebDev,Design&via=WebDevSuren&url=http://gradients.online&text=Quickly%20generate%20beautiful%20gradients%20you%20can%20share%20with%20your%20friends!&',
       opts   = 'status=1' +
                ',width='  + width  +
                ',height=' + height +
