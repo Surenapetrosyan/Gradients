@@ -334,5 +334,7 @@ button:focus {
 
   .alert {
     top: 20%;
+    left: 1%;
+    right: 1%;
   }
 }

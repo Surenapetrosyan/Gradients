@@ -143,22 +143,22 @@ function rgbToHex(r, g, b) {
 function exportToCss(){
   if (!CSSOpen) {
     bootstrap_alert.warningWithCode("<em>.yourClassName</em> { </br> background: " + fallbackColor + "; /* fallback for unsupported browsers */ </br> " + "background: -webkit-" + canvas.style.backgroundImage +  "; </br>background: " + canvas.style.backgroundImage + "; </br>}");
-    CSSOpen = true;
-    $('#leftHexCode').addClass('hidden');
-    $('#leftToggle').addClass('hidden');
-    $('#leftSwatch').addClass('hidden');
-    $('#rightHexCode').addClass('hidden');
-    $('#rightToggle').addClass('hidden');
-    $('#rightSwatch').addClass('hidden');
   } else {
     bootstrap_alert.clear();
-    CSSOpen = false;
-    showControls();
   }
 
 }
 
-function showControls(){
+function hideControls() {
+  $('#leftHexCode').addClass('hidden');
+  $('#leftToggle').addClass('hidden');
+  $('#leftSwatch').addClass('hidden');
+  $('#rightHexCode').addClass('hidden');
+  $('#rightToggle').addClass('hidden');
+  $('#rightSwatch').addClass('hidden');
+}
+
+function showControls() {
   $('#leftHexCode').removeClass('hidden');
   $('#leftToggle').removeClass('hidden');
   $('#leftSwatch').removeClass('hidden');
@@ -173,11 +173,14 @@ bootstrap_alert = function() {}
 //Creates alert with extra class I created for css export styling.
 bootstrap_alert.warningWithCode = function(message) {
             $('#alert_placeholder').html('<div class="alert alert-success alert-dismissable code"><button type="button" class="close" onclick="showControls()" data-dismiss="alert" aria-hidden="true">&times;</button><span>'+message+'</span> <hr> <p class="share">Like what I do here? I do it for the <a href="http://twitter.com/share?hashtags=WebDesign,WebDev,Design&via=WebDevSuren&url=http://gradients.online&text=Quickly%20generate%20beautiful%20gradients%20you%20can%20share%20with%20your%20friends!&">tweets!</a></p></div>');
+            CSSOpen = true;
+            hideControls();
 }
 
 //Closes alert.
 bootstrap_alert.clear = function() {
             $('#alert_placeholder').html('');
+            CSSOpen = false;
             showControls();
 }
 
