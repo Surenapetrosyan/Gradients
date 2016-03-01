@@ -263,7 +263,20 @@ button:focus {
   padding-bottom: 20px;
   margin-bottom: 60px;
   cursor: pointer;
-  height: 130px;
+  height: 200px;
+}
+
+.share {
+  font-family: 'roboto';
+  font-weight: 400;
+  font-size: 16px;
+}
+.share a {
+  font-style: normal;
+  font-weight: bold;
+  color: #55acee;
+  font-size: 18px;
+  cursor: pointer;
 }
 @media (max-width: 1500px) {
   .explanation {
@@ -312,10 +325,10 @@ button:focus {
     margin-right: 0px;
   }
 
-  #twitterLogo {
-    height: 75px;
-  }
   .future p {
     font-size: 16px;
+  }
+  #twitterLogo {
+    height: 150px;
   }
 }
